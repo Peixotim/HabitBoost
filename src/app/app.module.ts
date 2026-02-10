@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { configDotenv } from 'dotenv';
+import { UserModule } from 'src/user/user.module';
+import { ArgonModule } from 'src/argon/argon.module';
 configDotenv({
   path: '.env',
 });
@@ -19,6 +21,8 @@ configDotenv({
       autoLoadEntities: true,
       synchronize: true, //Alter to false
     }),
+    UserModule,
+    ArgonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
