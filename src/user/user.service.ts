@@ -1,0 +1,34 @@
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
+import { UserRepository } from './user.repository';
+import { UserCreateDTO } from './DTOs/user.create.dto';
+import { ArgonService } from 'src/argon/argon.service';
+
+@Injectable()
+export class UserService {
+  constructor(
+    private readonly userRepository: UserRepository,
+    private readonly argonHash: ArgonService,
+  ) {}
+
+  public async create(request: UserCreateDTO) {
+    if (!request) {
+      throw new BadRequestException(`Error: the request came back empty.`);
+    }
+
+    const findUser = await this.userRepository.findByMail(request.email);
+
+    if (findUser) {
+      throw new ConflictException(
+        `Error: A user with this email address already exists! `,
+      );
+    }
+    const passwordHashed = await this.argonHash.hashPassword(request.password);
+    const newUser: UserCreateDTO = { ...request, password: passwordHashed };
+
+    return await this.userRepository.create(newUser);
+  }
+}
