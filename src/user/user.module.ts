@@ -10,5 +10,6 @@ import { ArgonModule } from 'src/argon/argon.module';
   controllers: [UserController],
   providers: [UserService, UserRepository],
   imports: [TypeOrmModule.forFeature([User]), ArgonModule],
+  exports: [UserService],
 })
 export class UserModule {}
