@@ -1,7 +1,9 @@
+import { Objective } from 'src/objective/model/objective.model';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -22,6 +24,9 @@ export class User {
 
   @Column({ type: 'integer', nullable: true })
   score: number;
+
+  @OneToMany(() => Objective, (objective) => objective.user)
+  objectives: Objective[];
 
   @CreateDateColumn()
   created_at: Date;
