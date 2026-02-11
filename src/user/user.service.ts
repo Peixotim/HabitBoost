@@ -4,7 +4,7 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { UserRepository } from './user.repository';
-import { UserCreateDTO } from './DTOs/user.create.dto';
+import { UserCreateDTO } from './DTOs/user-create.dto';
 import { ArgonService } from 'src/argon/argon.service';
 
 @Injectable()
@@ -13,6 +13,26 @@ export class UserService {
     private readonly userRepository: UserRepository,
     private readonly argonHash: ArgonService,
   ) {}
+
+  public async getAll() {
+    const findAll = await this.userRepository.findAll();
+
+    if (!findAll) {
+      return [];
+    }
+
+    return findAll;
+  }
+
+  public async getById(uuid: string) {
+    const user = await this.userRepository.findById(uuid);
+
+    if (!user) {
+      return null;
+    }
+
+    return user;
+  }
 
   public async create(request: UserCreateDTO) {
     if (!request) {
