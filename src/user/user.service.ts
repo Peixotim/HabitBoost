@@ -7,6 +7,7 @@ import {
 import { UserRepository } from './user.repository';
 import { UserCreateDTO } from './DTOs/user-create.dto';
 import { ArgonService } from 'src/argon/argon.service';
+import { UserUpdateDTO } from './DTOs/user-update.dto';
 
 @Injectable()
 export class UserService {
@@ -15,33 +16,31 @@ export class UserService {
     private readonly argonHash: ArgonService,
   ) {}
 
-  public async getAll() {
-    const findAll = await this.userRepository.findAll();
-
-    if (!findAll) {
-      return [];
+  public async getByEmail(email: string) {
+    const user = await this.userRepository.findByEmail(email);
+    if (!user) {
+      throw new NotFoundException(`User Not Found !`);
     }
+    return user;
+  }
 
-    return findAll;
+  public async getAll() {
+    return await this.userRepository.findAll();
   }
 
   public async getById(uuid: string) {
     const user = await this.userRepository.findById(uuid);
 
     if (!user) {
-      return null;
+      throw new NotFoundException(`User Not Found`);
     }
 
     return user;
   }
 
   public async delete(uuid: string) {
-    const result = await this.userRepository.delete(uuid);
-
-    if (!result) {
-      throw new NotFoundException(`User Not Found !`);
-    }
-
+    await this.getById(uuid);
+    await this.userRepository.delete(uuid);
     return { message: `User deleted successfully ` };
   }
 
@@ -50,7 +49,7 @@ export class UserService {
       throw new BadRequestException(`Error: the request came back empty.`);
     }
 
-    const findUser = await this.userRepository.findByMail(request.email);
+    const findUser = await this.userRepository.findByEmail(request.email);
 
     if (findUser) {
       throw new ConflictException(
@@ -61,5 +60,29 @@ export class UserService {
     const newUser: UserCreateDTO = { ...request, password: passwordHashed };
 
     return await this.userRepository.create(newUser);
+  }
+
+  public async update(uuid: string, data: UserUpdateDTO) {
+    const updateUser = await this.userRepository.update(uuid, data);
+
+    if (!updateUser) {
+      throw new NotFoundException(`User Not Found !`);
+    }
+
+    return updateUser;
+  }
+
+  public async disable(uuid: string) {
+    await this.getById(uuid);
+    await this.userRepository.disable(uuid);
+
+    return { message: 'User deactivated successfully' };
+  }
+
+  public async enable(uuid: string) {
+    await this.getById(uuid);
+    await this.userRepository.enable(uuid);
+
+    return { message: 'User activated successfully' };
   }
 }
