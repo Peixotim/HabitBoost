@@ -15,6 +15,15 @@ export class ObjectiveService {
     private readonly userService: UserService,
   ) {}
 
+  public async getById(uuid: string) {
+    const user = await this.objectiveRepository.findById(uuid);
+    if (!user) {
+      throw new NotFoundException(`User Not Found !`);
+    }
+
+    return user;
+  }
+
   public async create(data: ObjectiveCreateDTO): Promise<Objective> {
     if (!data) {
       throw new BadRequestException(`Error payload is empty !`);
