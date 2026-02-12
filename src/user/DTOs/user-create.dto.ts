@@ -1,10 +1,4 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  MaxLength,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class UserCreateDTO {
   @IsString({ message: 'Name must be a valid text.' })
@@ -21,7 +15,4 @@ export class UserCreateDTO {
   @MaxLength(255)
   @IsNotEmpty()
   password: string;
-
-  @IsNumber()
-  score: number = 0;
 }
