@@ -22,8 +22,8 @@ export class User {
   @Column({ length: 255, type: 'varchar' })
   password: string;
 
-  @Column({ type: 'integer', nullable: true })
-  score: number;
+  @Column({ type: 'boolean', default: true })
+  isActive: boolean;
 
   @OneToMany(() => Objective, (objective) => objective.user)
   objectives: Objective[];
