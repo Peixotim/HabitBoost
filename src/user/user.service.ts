@@ -2,6 +2,7 @@ import {
   BadRequestException,
   ConflictException,
   Injectable,
+  NotFoundException,
 } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { UserCreateDTO } from './DTOs/user-create.dto';
@@ -32,6 +33,16 @@ export class UserService {
     }
 
     return user;
+  }
+
+  public async delete(uuid: string) {
+    const result = await this.userRepository.delete(uuid);
+
+    if (!result) {
+      throw new NotFoundException(`User Not Found !`);
+    }
+
+    return { message: `User deleted successfully ` };
   }
 
   public async create(request: UserCreateDTO) {

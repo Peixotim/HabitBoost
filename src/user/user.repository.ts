@@ -12,9 +12,6 @@ export class UserRepository {
     const user = await this.userRepository.findOne({
       where: { email: email },
     });
-    if (!user) {
-      return {};
-    }
     return user;
   }
 
@@ -32,5 +29,9 @@ export class UserRepository {
     return await this.userRepository.findOne({
       where: { id: uuid },
     });
+  }
+
+  public async delete(uuid: string) {
+    return await this.userRepository.delete({ id: uuid });
   }
 }
