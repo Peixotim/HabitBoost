@@ -2,7 +2,9 @@ import { Repository, DeepPartial } from 'typeorm';
 import { Objective } from './model/objective.model';
 
 import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class ObjectiveRepository {
   constructor(
     @InjectRepository(Objective)
