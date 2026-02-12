@@ -16,4 +16,10 @@ export class ObjectiveRepository {
     const newObjective = await this.objectiveRepository.save(request);
     return newObjective;
   }
+
+  public async findById(uuid: string) {
+    return await this.objectiveRepository.findOne({
+      where: { id: uuid },
+    });
+  }
 }
