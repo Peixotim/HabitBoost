@@ -62,8 +62,8 @@ Este projeto foi construído utilizando as mais modernas tecnologias para garant
 *   **[NestJS](https://nestjs.com/):** Um framework Node.js progressivo para construir aplicações eficientes e escaláveis do lado do servidor.
 *   **[TypeScript](https://www.typescriptlang.org/):** Para um código mais seguro, legível e manutenível.
 *   **[Docker](https://www.docker.com/):** Para garantir um ambiente de desenvolvimento e produção consistente e isolado.
-*   **[PostgreSQL](https://www.postgresql.org/):** (ou seu banco de dados de escolha) Como nosso banco de dados relacional.
-*   **[TypeORM](https://www.typeorm.io/):** (sugestão) Como nosso ORM para uma interação fluida com o banco de dados.
+*   **[PostgreSQL](https://www.postgresql.org/):** Como nosso banco de dados relacional.
+*   **[TypeORM](https://www.typeorm.io/):** Como nosso ORM para uma interação fluida com o banco de dados.
 
 ---
 
