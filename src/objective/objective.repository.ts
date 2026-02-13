@@ -24,4 +24,8 @@ export class ObjectiveRepository {
       where: { id: uuid },
     });
   }
+
+  public async findAll() {
+    return await this.objectiveRepository.find();
+  }
 }
