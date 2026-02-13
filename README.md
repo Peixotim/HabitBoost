@@ -9,16 +9,16 @@
     <a href="#-sobre-o-projeto"><strong>Explore a documentação »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/seu-usuario/habit-boost/issues">Reportar Bug</a>
+    <a href="https://github.com/peixotim/HabitBoost/issues">Reportar Bug</a>
     ·
-    <a href="https://github.com/seu-usuario/habit-boost/issues">Solicitar Feature</a>
+    <a href="https://github.com/peixotim/HabitBoost/issues">Solicitar Feature</a>
   </p>
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/seu-usuario/habit-boost?style=for-the-badge" alt="Licença">
-  <img src="https://img.shields.io/github/stars/seu-usuario/habit-boost?style=for-the-badge" alt="Stars">
-  <img src="https://img.shields.io/github/forks/seu-usuario/habit-boost?style=for-the-badge" alt="Forks">
+  <img src="https://img.shields.io/github/license/peixotim/HabitBoost?style=for-the-badge" alt="Licença">
+  <img src="https://img.shields.io/github/stars/peixotim/HabitBoost?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/github/forks/peixotim/HabitBoost?style=for-the-badge" alt="Forks">
 </p>
 
 ---
@@ -82,8 +82,8 @@ Certifique-se de ter os seguintes softwares instalados em sua máquina:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/peixotim/habit-boost.git
-    cd habit-boost
+    git clone https://github.com/peixotim/HabitBoost.git
+    cd HabitBoost
     ```
 
 2.  **Instale as dependências:**
