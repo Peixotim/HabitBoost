@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { configDotenv } from 'dotenv';
 import { UserModule } from 'src/user/user.module';
 import { ArgonModule } from 'src/argon/argon.module';
+import { AuthModule } from 'src/auth/auth.module';
+import { ObjectiveModule } from 'src/objective/objective.module';
 configDotenv({
   path: '.env',
 });
@@ -23,6 +25,8 @@ configDotenv({
     }),
     UserModule,
     ArgonModule,
+    AuthModule,
+    ObjectiveModule,
   ],
   controllers: [AppController],
   providers: [AppService],
