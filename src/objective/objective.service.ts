@@ -15,6 +15,10 @@ export class ObjectiveService {
     private readonly userService: UserService,
   ) {}
 
+  public async getAll(): Promise<Objective[]> {
+    return await this.objectiveRepository.findAll();
+  }
+
   public async getById(uuid: string) {
     const user = await this.objectiveRepository.findById(uuid);
     if (!user) {
