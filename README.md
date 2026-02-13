@@ -1,8 +1,5 @@
 <div align="center">
   <br />
-  <img src="https://raw.githubusercontent.com/MauroNobrega/etc/main/src/assets/banner-habit-boost.png" alt="Habit Boost Banner">
-  <br />
-
   <h1 align="center">HabitBoost</h1>
 
   <p align="center">
@@ -66,7 +63,7 @@ Este projeto foi construído utilizando as mais modernas tecnologias para garant
 *   **[TypeScript](https://www.typescriptlang.org/):** Para um código mais seguro, legível e manutenível.
 *   **[Docker](https://www.docker.com/):** Para garantir um ambiente de desenvolvimento e produção consistente e isolado.
 *   **[PostgreSQL](https://www.postgresql.org/):** (ou seu banco de dados de escolha) Como nosso banco de dados relacional.
-*   **[Prisma](https://www.prisma.io/):** (sugestão) Como nosso ORM para uma interação fluida com o banco de dados.
+*   **[TypeORM](https://www.typeorm.io/):** (sugestão) Como nosso ORM para uma interação fluida com o banco de dados.
 
 ---
 
@@ -85,7 +82,7 @@ Certifique-se de ter os seguintes softwares instalados em sua máquina:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/seu-usuario/habit-boost.git
+    git clone https://github.com/peixotim/habit-boost.git
     cd habit-boost
     ```
 
@@ -95,7 +92,6 @@ Certifique-se de ter os seguintes softwares instalados em sua máquina:
     ```
 
 3.  **Configure as variáveis de ambiente:**
-    Copie o arquivo de exemplo e preencha com suas informações (banco de dados, chaves de API, etc).
     ```bash
     cp .env.example .env
     ```
@@ -149,5 +145,5 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 <div align="center">
   <br/>
-  Feito com ❤️ por [Seu Nome](https://github.com/seu-usuario)
+  Feito com ❤️ por [Pedro Peixoto](https://github.com/peixotim)
 </div>
